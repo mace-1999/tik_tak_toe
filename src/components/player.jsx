@@ -3,7 +3,7 @@ import { useState } from "react";
 
 // USED TERNARY EXPRESSION TO CONDITIONALLY RENDER THE HTML.
 
-const Player = ({ initialName, symbol }) => {
+const Player = ({ initialName, symbol, isActive }) => {
   const [playerName, setPlayerName] = useState(initialName);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -17,7 +17,7 @@ const Player = ({ initialName, symbol }) => {
 
   }
   return (
-    <li>
+    <li className={isActive ? 'active': undefined}>
       <span className="player">
         {isEditing ? (
           <input type="text" required value={playerName} onChange={handleChange}/>
